@@ -28,7 +28,7 @@ app.get('/', (req, res)=>{
 
 //Since nested function connectTo Database is async, you'll have to make the parent function async as well
 app.listen(PORT, async () => {
-    console.log(`Subscription Tracker API is running on port http://localhost: ${PORT}`);
+    console.log(`Subscription Tracker API is running on port http://localhost:${PORT}`);
 
     //await is used since this is an asynchronous function
     await connectToDatabase();
