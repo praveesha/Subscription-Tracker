@@ -22,7 +22,7 @@ const userSchema = new mongoose.Schema({
         required: [true, "User's Name is required!"],
         minLength: 8
     }
-}, 
+},
 //adds timestamps for the creation and modification of a user
 {timestamps: true}
 );
