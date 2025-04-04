@@ -24,7 +24,7 @@
     },
     category: {
         type: String,
-        enum: ['sports', 'news', 'lifestyle', 'technology', 'finance', 'politics', 'other'],
+        enum: ['sports', 'news', 'lifestyle', 'technology', 'finance', 'politics', 'entertainment', 'other'],
         require: true
     },
     paymentMethod: {
@@ -47,10 +47,10 @@
     },
     renewalDate: {
         type: Date,
-        required: true,
+        required: false,
         validate: {
             validator: function (value) {
-                value > this.startDate;
+                return value > this.startDate;
             },
             message: 'Renewal date must be after the start date'
         }
@@ -78,17 +78,18 @@
         this.renewalDate = new Date(this.startDate);
         this.renewalDate.setDate(this.renewalDate.getDate() + renewalPeriods[this.frequency]);
     }
+
+    //Auto-update the status if the renewal date has passed
+    if (this.renewalDate < new Date()) {
+        this.status = "expired"
+    }
+
+    next();
  })
 
- //Auto-update the status if the renewal date has passed
- if (this.renewalDate < new Date()) {
-    this.status = "expired"
- }
-
- next();
 
  //creating the model. Model name generally start with a capital letter
  const Subscription = mongoose.model('Subscription', subscriptionSchema);
 
 
- export default subscriptionSchema;
+ export default Subscription;

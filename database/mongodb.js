@@ -7,7 +7,13 @@ if (!DB_URI) {
 
 const connectToDatabase = async () => {
     try {
-        await mongoose.connect(DB_URI);
+        await mongoose.connect(DB_URI, {
+            useNewUrlParser: true,
+            useUnifiedTopology: true,
+            ssl: true, // enforce SSL
+            tlsAllowInvalidCertificates: NODE_ENV !== 'production', // allow self-signed certs in dev
+            serverSelectionTimeoutMS: 10000, // wait 10s before failing
+        });
         //Use backticks `` for string interpolation
         console.log(`Connected to the database in ${NODE_ENV} mode`);
     }
