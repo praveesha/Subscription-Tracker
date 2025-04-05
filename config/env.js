@@ -12,6 +12,9 @@ const JWT_SECRET = process.env.JWT_SECRET;
 const JWT_EXPIRES_IN = process.env.JWT_EXPIRES_IN;
 const ARCJET_KEY = process.env.ARCJET_KEY;
 const ARCJET_ENV = process.env.ARCJET_ENV;
+const QSTASH_TOKEN = process.env.QSTASH_TOKEN;
+const QSTASH_URL = process.env.QSTASH_URL;
+const SERVER_URL = process.env.SERVER_URL;
 
 
 export { 
@@ -19,5 +22,7 @@ export {
     NODE_ENV, 
     DB_URI,
     JWT_SECRET, JWT_EXPIRES_IN,
-    ARCJET_KEY, ARCJET_ENV
+    ARCJET_KEY, ARCJET_ENV,
+    QSTASH_URL, QSTASH_TOKEN,
+    SERVER_URL,
 };

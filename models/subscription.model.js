@@ -24,7 +24,7 @@
     },
     category: {
         type: String,
-        enum: ['sports', 'news', 'lifestyle', 'technology', 'finance', 'politics', 'entertainment', 'other'],
+        enum: ['sports', 'news', 'lifestyle', 'technology', 'finance', 'politics', 'entertainment', 'education', 'other'],
         require: true
     },
     paymentMethod: {
